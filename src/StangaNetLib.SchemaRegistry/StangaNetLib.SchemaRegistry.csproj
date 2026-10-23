@@ -3,13 +3,14 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <AssemblyName>StangaNetLib.SchemaRegistry</AssemblyName>
     <RootNamespace>StangaNetLib.SchemaRegistry</RootNamespace>
-    <Version>1.0.1</Version>
-    <Description>JSON payload validation against versioned schemas with pluggable in-process and remote registry backends. Depends on StangaNetLib.Core and StangaNetLib.Resilience.</Description>
-    <PackageTags>schema;validation;json-schema;registry;versioning;stanganet</PackageTags>
+    <Version>1.1.0</Version>
+    <Description>JSON payload validation against versioned schemas with pluggable in-process and remote registry backends, portable backup-manifest schemas, and registry snapshot export/import. Depends on StangaNetLib.Core and StangaNetLib.Resilience.</Description>
+    <PackageTags>schema;validation;json-schema;registry;versioning;backup;manifest;stanganet</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <InternalsVisibleTo Include="StangaNetLib.SchemaRegistry.Tests" />
+    <EmbeddedResource Include="Manifests\backup-manifest-1.0.0.json" />
   </ItemGroup>
 
   <ItemGroup>

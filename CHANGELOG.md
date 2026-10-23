@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [1.1.0] - 2026-10-23
+
+### Added
+- Portable backup manifest schema (`stanganet.backup.manifest` / `1.0.0`), DTOs, and `BackupManifestSchemaSeeder`.
+- `SchemaRegistrySnapshot` export/import for portable registry packaging.
+- `AddStangaNetLibBackupManifestSchemasAsync` helper.
+
 ## [1.0.1] - 2026-10-23
 
 ### Changed

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using StangaNetLib.Resilience.Execution;
 using StangaNetLib.SchemaRegistry.Abstractions;
 using StangaNetLib.SchemaRegistry.Implementations;
+using StangaNetLib.SchemaRegistry.Manifests;
 using StangaNetLib.SchemaRegistry.Settings;
 
 namespace StangaNetLib.SchemaRegistry.Extensions;
@@ -132,6 +133,22 @@ public static class ServiceCollectionExtensions
         services.AddSingleton(Options.Create(settings));
         services.AddSingleton<IValidateOptions<SchemaRegistrySettings>, SchemaRegistrySettingsValidator>();
         return services.AddHttpRegistryCore(settings, configureHttpClient);
+    }
+
+    /// <summary>
+    /// Seeds the embedded <c>stanganet.backup.manifest</c> / <c>1.0.0</c> schema into the
+    /// registered <see cref="ISchemaRegistry"/>. Call after building the service provider.
+    /// </summary>
+    public static async Task<IServiceProvider> AddStangaNetLibBackupManifestSchemasAsync(
+        this IServiceProvider services,
+        CancellationToken cancellationToken = default)
+    {
+        var registry = services.GetRequiredService<ISchemaRegistry>();
+        var result = await BackupManifestSchemaSeeder.SeedAsync(registry, cancellationToken)
+            .ConfigureAwait(false);
+        if (result.IsFailure)
+            throw new InvalidOperationException(result.Error.Description);
+        return services;
     }
 
     private static IServiceCollection AddInMemoryRegistryCore(this IServiceCollection services)

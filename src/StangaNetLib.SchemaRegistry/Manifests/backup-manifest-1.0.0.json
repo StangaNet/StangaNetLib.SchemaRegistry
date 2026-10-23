@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stanganet.dev/schemas/backup-manifest/1.0.0",
+  "title": "StangaNet Backup Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "exportedAt", "product", "items"],
+  "properties": {
+    "schemaVersion": { "type": "string", "minLength": 1 },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "product": { "type": "string", "minLength": 1 },
+    "contentHash": { "type": ["string", "null"] },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "id"],
+        "properties": {
+          "type": { "type": "string", "minLength": 1 },
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": ["string", "null"] },
+          "payloadRef": { "type": ["string", "null"] },
+          "checksum": { "type": ["string", "null"] },
+          "sizeBytes": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "encryption": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["algorithm"],
+      "properties": {
+        "algorithm": { "type": "string", "minLength": 1 },
+        "kdf": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
