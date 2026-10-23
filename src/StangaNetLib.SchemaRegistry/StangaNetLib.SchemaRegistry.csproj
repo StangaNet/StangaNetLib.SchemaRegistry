@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <AssemblyName>StangaNetLib.SchemaRegistry</AssemblyName>
     <RootNamespace>StangaNetLib.SchemaRegistry</RootNamespace>
     <Version>1.0.0</Version>
@@ -16,7 +16,7 @@
     <PackageReference Include="StangaNetLib.Core" />
     <PackageReference Include="StangaNetLib.Resilience" />
     <PackageReference Include="JsonSchema.Net" />
-    <!-- Explicit pin: JsonSchema.Net 7.x packaging bug — declared dep is 4.0.0 but runtime requires 5.x -->
+    <!-- Explicit pin: JsonSchema.Net 7.x packaging bug � declared dep is 4.0.0 but runtime requires 5.x -->
     <PackageReference Include="JsonPointer.Net" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />

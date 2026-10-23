@@ -2,7 +2,7 @@
 
 [![.NET CI](https://github.com/StangaNet/StangaNetLib.SchemaRegistry/actions/workflows/main.yml/badge.svg)](https://github.com/StangaNet/StangaNetLib.SchemaRegistry/actions/workflows/main.yml)
 ![NuGet](https://img.shields.io/badge/nuget-1.0.0-blue)
-![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%209.0-512BD4)
+![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%209.0%20%7C%2010.0-512BD4)
 
 JSON payload validation against versioned schemas with pluggable in-memory and HTTP registry backends. Uses `Result` / `Guard` from [`StangaNetLib.Core`](https://github.com/StangaNet/StangaNetLib.Core); optional HTTP resilience via [`StangaNetLib.Resilience`](https://github.com/StangaNet/StangaNetLib.Resilience) (`IResilientExecutor`).
 

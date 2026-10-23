@@ -10,7 +10,7 @@
     <PackageVersion Include="JsonSchema.Net" Version="7.0.0" />
     <!-- Explicit pin: JsonSchema.Net 7.x packaging bug — declared dep is 4.0.0 but runtime requires 5.x -->
     <PackageVersion Include="JsonPointer.Net" Version="5.0.0" />
-    <!-- Runtime dependencies — align with lowest TFM (net8) for dual-targeting -->
+    <!-- Runtime dependencies — align with lowest TFM (net8) for multi-targeting (net8/net9/net10) -->
     <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.1" />
